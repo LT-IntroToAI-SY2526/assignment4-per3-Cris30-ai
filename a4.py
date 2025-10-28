@@ -11,9 +11,16 @@ class TTTBoard:
     """
 
     def __init__(self):
-        self.
-        
+        self.board: ["*"] * 9
 
+    def __str__(self):
+        row1 = " ".join(self.board[0:3])
+        row2 = " ".join(self.board[3:6])
+        row3 = " ".join(self.board[6:9])
+        return row1 + ""
+
+
+        
 
 def play_tic_tac_toe() -> None:
     """Uses your class to play TicTacToe"""
