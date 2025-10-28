@@ -17,7 +17,13 @@ class TTTBoard:
         row1 = " ".join(self.board[0:3])
         row2 = " ".join(self.board[3:6])
         row3 = " ".join(self.board[6:9])
-        return row1 + ""
+        return row1 + "\n" + row2 + "\n" + row3
+    
+    def make_move(self, position, player_symbol):
+        index = position - 1
+        if self.board[index] == "*":
+            self.board[index] = player_symbol 
+
 
 
         
