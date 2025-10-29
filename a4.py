@@ -22,7 +22,37 @@ class TTTBoard:
     def make_move(self, position, player_symbol):
         index = position - 1
         if self.board[index] == "*":
-            self.board[index] = player_symbol 
+            self.board[index] = player_symbol
+        else:
+            print("That spot is already taken! Choose another.")
+    
+    def has_won(self, player: str) -> bool:
+        """Returns Ture if the given player has won, False otherwise"""
+        winning_combos = [
+            [0, 1, 2], #top row
+            [3, 4, 5], # middle row
+            [6, 7, 8], # bottom row
+            [0, 3, 6], # left column
+            [1, 4, 7], # middle column
+            [2, 5, 8], #right column
+            [0, 4, 8], #diagonal top-left to bottom-right
+            [2, 4, 6], #diagonal top-right to bottom-left
+        ]
+        for combos in winning_combos:
+            if all(self.board[i] == player for i in combos):
+                return True
+        return False
+    
+    def game_over(self) -> bool:
+        """Return True if someone has won or the board is full, False otherwis."""
+        if self.has_won("X") or self.has_won("O"):
+            return True
+        if "*" not in self.board:
+            return True
+        return False
+    def clear(self) -> None:
+        """Reset the board to start a new game."""
+        self.board = ["*"] * 9
 
 
 
@@ -75,6 +105,11 @@ if __name__ == "__main__":
     # here are some tests. These are not at all exhaustive tests. You will DEFINITELY
     # need to write some more tests to make sure that your TTTBoard class is behaving
     # properly.
+    
+    #Board set-up
+    assert brd.board == ["x"] * 9, "Initial board not set up correctly"
+    assert brd.game_over() == False, "Game should start not be over"
+
     brd = TTTBoard()
     brd.make_move("X", 8)
     brd.make_move("O", 7)
@@ -104,4 +139,4 @@ if __name__ == "__main__":
     print("All tests passed!")
 
     # uncomment to play!
-    # play_tic_tac_toe()
+     play_tic_tac_toe()
