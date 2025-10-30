@@ -20,7 +20,7 @@ class TTTBoard:
         return row1 + "\n" + row2 + "\n" + row3
     
     def make_move(self, player_symbol, position):
-        index = position
+        index = position - 1
         if self.board[index] == "*":
             self.board[index] = player_symbol
         else:
@@ -82,7 +82,7 @@ def play_tic_tac_toe() -> None:
 
     while not brd.game_over():
         print(brd)
-        move: str = input(f"Player {players[turn]} what is your move? ")
+        move: str = input(f"Player {players[turn]} what is your move (1-9)? ")
 
         if not is_int(move):
             raise ValueError(
@@ -112,14 +112,14 @@ if __name__ == "__main__":
     assert brd.game_over() == False, "Game should start not be over"
 
     brd = TTTBoard()
-    brd.make_move("X", 8)
-    brd.make_move("O", 7)
+    brd.make_move("X", 9)
+    brd.make_move("O", 8)
 
     assert brd.game_over() == False
 
-    brd.make_move("X", 5)
-    brd.make_move("O", 6)
-    brd.make_move("X", 2)
+    brd.make_move("X", 6)
+    brd.make_move("O", 7)
+    brd.make_move("X", 3)
 
     assert brd.has_won("X") == True
     assert brd.has_won("O") == False
@@ -129,9 +129,9 @@ if __name__ == "__main__":
 
     assert brd.game_over() == False
 
-    brd.make_move("O", 3)
     brd.make_move("O", 4)
     brd.make_move("O", 5)
+    brd.make_move("O", 6)
 
     assert brd.has_won("X") == False
     assert brd.has_won("O") == True
