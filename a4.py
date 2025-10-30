@@ -11,7 +11,7 @@ class TTTBoard:
     """
 
     def __init__(self):
-        self.board: ["*"] * 9
+        self.board = ["*"] * 9
 
     def __str__(self):
         row1 = " ".join(self.board[0:3])
@@ -19,7 +19,7 @@ class TTTBoard:
         row3 = " ".join(self.board[6:9])
         return row1 + "\n" + row2 + "\n" + row3
     
-    def make_move(self, position, player_symbol):
+    def make_move(self, player_symbol, position):
         index = position - 1
         if self.board[index] == "*":
             self.board[index] = player_symbol
@@ -107,7 +107,8 @@ if __name__ == "__main__":
     # properly.
     
     #Board set-up
-    assert brd.board == ["x"] * 9, "Initial board not set up correctly"
+    brd = TTTBoard()
+    assert brd.board == ["*"] * 9, "Initial board not set up correctly"
     assert brd.game_over() == False, "Game should start not be over"
 
     brd = TTTBoard()
@@ -139,4 +140,4 @@ if __name__ == "__main__":
     print("All tests passed!")
 
     # uncomment to play!
-     play_tic_tac_toe()
+    play_tic_tac_toe()
