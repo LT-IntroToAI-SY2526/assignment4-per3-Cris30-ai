@@ -20,7 +20,7 @@ class TTTBoard:
         return row1 + "\n" + row2 + "\n" + row3
     
     def make_move(self, player_symbol, position):
-        index = position
+        index = position - 1
         if self.board[index] == "*":
             self.board[index] = player_symbol
         else:
