@@ -20,11 +20,16 @@ class TTTBoard:
         return row1 + "\n" + row2 + "\n" + row3
     
     def make_move(self, player_symbol, position):
+        if not isinstance(position, int) or position < 1 or position > 9: 
+            print("Invalid position!")
+            return False
         index = position - 1
         if self.board[index] == "*":
             self.board[index] = player_symbol
+            return True
         else:
             print("That spot is already taken! Choose another.")
+            return False 
     
     def has_won(self, player: str) -> bool:
         """Returns Ture if the given player has won, False otherwise"""
@@ -80,17 +85,14 @@ def play_tic_tac_toe() -> None:
     players = ["X", "O"]
     turn = 0
 
-    while not brd.game_over():
-        print(brd)
+    while not brd.is_full() and not brd.has_won("X") and not brd.has_won("O"):
         move: str = input(f"Player {players[turn]} what is your move (1-9)? ")
-
-        if not is_int(move):
-            raise ValueError(
-                f"Given invalid position {move}, position must be integer between 0 and 8 inclusive"
-            )
+        if brd.make_move(int(move), players[turn]):
+        brd.print_board()
+        turn = 1 - turn 
 
         if brd.make_move(players[turn], int(move)):
-            turn = not turn
+            turn = 1 - turn
 
     print(f"\nGame over!\n\n{brd}")
     if brd.has_won(players[0]):
