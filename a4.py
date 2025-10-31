@@ -88,7 +88,11 @@ brd.make_move(2, "X")
 brd.make_move(3, "X")
 assert brd.has_won("X") == True
 assert brd.has_won("O") == False
+assert brd.make_move(10,"O") == False
+
+full_brd = TTTBoard()
+for i in range(1,10):
+    full_brd.make_move(i, "x")
+assert full_brd.is_full() == True
 print("All tests passed!")
-
-
 play_tic_tac_toe()
