@@ -5,7 +5,7 @@ In assignment 4 we created a basic tic tac toe game so that we could learn objec
 ## Reflection Questions
 
 1. What was the most difficult part to tic-tac-toe?
-    The most difficult part of the aissgnment was figruginh out the different positions and the wining combinations. I was a little confused that in python, the computer starts at zero not one. But once I figured this out I was able to do (index = position - 1), which gives same position on the board that users would assume. 
+    The most difficult part of the aissgnment was figuring out the different positions and the wining combinations. I was a little confused that in python, the computer starts at zero not one. But once I figured this out I was able to do (index = position - 1), which gives same position on the board that users would assume. 
 
 
 2. Explain how you would add a computer player to the game.
