@@ -54,7 +54,7 @@ class TTTBoard:
 def play_tic_tac_toe():
     brd = TTTBoard()
     players = ["X", "O"]
-    turn = 0  # start with X
+    turn = 0  
 
     print(brd)
     while True:
@@ -75,12 +75,12 @@ def play_tic_tac_toe():
                 print("It's a draw!")
                 break
             else:
-                turn = 1 - turn  # switch player
+                turn = 1 - turn  
         else:
             continue
 
 
-# ---- Tests ----
+
 brd = TTTBoard()
 assert brd.make_move(1, "X") == True
 assert brd.make_move(1, "O") == False
@@ -90,5 +90,5 @@ assert brd.has_won("X") == True
 assert brd.has_won("O") == False
 print("All tests passed!")
 
-# ---- Play ----
+
 play_tic_tac_toe()
