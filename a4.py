@@ -66,7 +66,18 @@ def play_tic_tac_toe():
             print("Please enter a number between 1 and 9.")
             continue
 
-        
+        if brd.make_move(move, players[turn]):
+            print(brd)
+            if brd.has_won(players[turn]):
+                print(f"Player {players[turn]} wins!")
+                break
+            elif brd.is_full():
+                print("It's a draw!")
+                break
+            else:
+                turn = 1 - turn  # switch player
+        else:
+            continue
 
 
 # ---- Tests ----
