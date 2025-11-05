@@ -22,12 +22,12 @@ Remember: This assignment introduces object-oriented programming concepts that w
 | Criteria | Points Possible | Points Earned | Comments |
 |----------|----------------|---------------|----------|
 | **Programming Implementation** | | | |
-| TTTBoard Class Methods | 4 | | |
-| Test Cases Passing | 3 | | |
+| TTTBoard Class Methods | 4 | 3 | I likethe way you did str but you are missing game over and you didn't need to handle if a player picked a spot already or not, that is handled in the play tic tac toe method |
+| Test Cases Passing | 3 | 2| |
 | **Reflection & Understanding** | | | |
-| Programming Challenge Reflection | 1 | | |
-| Design & Strategy Understanding | 2 | | |
-| **TOTAL** | **10** | | |
+| Programming Challenge Reflection | 1 |1 | |
+| Design & Strategy Understanding | 2 | 2| |
+| **TOTAL** | **10** |8 | |
 
 ---
 
