@@ -49,6 +49,9 @@ class TTTBoard:
     def is_full(self):
         """Checks if the board is full."""
         return "*" not in self.board
+    def game_over(self):
+        """Returns True if the game has been won or the board is full."""
+        return self.has.won("x") or self.has_won("O") or self.is_full()
 
 
 def play_tic_tac_toe():
